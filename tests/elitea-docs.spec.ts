@@ -1,7 +1,8 @@
-import { test, expect, Browser } from '@playwright/test';
+import { test, expect, chromium } from '@playwright/test';
 
 test.describe('Elitea documentation navigation', () => {
-  test('should navigate from homepage to docs and wait for docs URL', async ({ browser }) => {
+  test('should navigate from homepage to docs and wait for docs URL', async () => {
+    const browser = await chromium.launch();
     const context = await browser.newContext();
     const page = await context.newPage();
 
